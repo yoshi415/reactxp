@@ -12,12 +12,14 @@ import * as RN from 'react-native';
 
 import * as RX from '../common/Interfaces';
 
+import { Picker } from '@react-native-community/picker';
+
 import { map } from './utils/lodashMini';
 
 export class Picker extends RX.Picker {
     render() {
         return (
-            <RN.Picker
+            <Picker
                 selectedValue={ this.props.selectedValue }
                 onValueChange={ this.onValueChange }
                 style={ this.props.style as RN.StyleProp<RN.ViewStyle> }
@@ -25,7 +27,7 @@ export class Picker extends RX.Picker {
                 testID={ this.props.testId }
             >
                 { map(this.props.items, (i, idx) => <RN.Picker.Item { ...i } key={ idx } /> ) }
-            </RN.Picker>
+            </Picker>
         );
     }
 
